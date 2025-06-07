@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Popup() {
   useEffect(() => {
@@ -9,12 +10,12 @@ export default function Popup() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900/70">
+    <div className="min-h-screen flex items-center justify-center bg-transparent">
       <div className="relative bg-white rounded-[15px] w-[500px] h-[220px] shadow-lg overflow-hidden">
         
         {/* Warning Icon and Text */}
-        <div className="absolute left-[24px] top-[24px] flex items-start space-x-3">
-          <img src="/icons/alert-triangle.svg" alt="Alert" className="w-5 h-5 mt-1" />
+          <Image src="/icons/alert-triangle.svg" alt="Alert" width={20} height={20} className="mt-1" />
+          <Image src="/icons/alert-triangle.svg" alt="Alert" width={20} height={20} className="w-5 h-5 mt-1" />
           <div>
             <div className="text-[#D92D20] text-[12px] font-bold leading-[18px] font-['Plus Jakarta Sans']">
               Times Out!
@@ -34,9 +35,11 @@ export default function Popup() {
     onClick={() => console.log("Close button clicked")}
     className="w-full h-full flex items-center justify-center focus:outline-none"
   >
-    <img
+    <Image
       src="/icons/x-circle.svg"
       alt="Close"
+      width={20}
+      height={20}
       className="w-5 h-5"
     />
   </button>
@@ -60,6 +63,5 @@ export default function Popup() {
           </Button>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
